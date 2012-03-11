@@ -3,8 +3,18 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#play-button').click( function() {
+          document.getElementById('audio').play();
+        });
+        $('#pause-button').click( function() {
+          document.getElementById('audio').pause();
+        });
+      });
+    </script>
   </head>
   <body>
     <!--
@@ -23,9 +33,11 @@
 	  <p>Sorry, your browser does not support playing audio.</p>
 	</audio>
 	<p>
-	  <div data-role="controlgroup" data-type="horizontal">
-	    <a data-role="button" onClick="document.getElementById('audio').play()">Play</a>
-	    <a data-role="button" onClick="document.getElementById('audio').pause()">Pause</a>
+	  <div data-role="controlgroup" data-type="horizontal" style="text-align:center">
+	    <a data-role="button" 
+	       id="play-button">Play</a>
+	    <a data-role="button" 
+	       id="pause-button">Pause</a>
 	  </div>
 	</p>
       </div><!-- /content -->
