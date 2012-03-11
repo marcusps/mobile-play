@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      h3 {
-        font-family: 'Droid Sans', Arial, sans-serif;
-        font-size: 14px;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
   </head>
   <body>
     <!--
-	Taken from 
+	Thanks to  
 	http://www.html5rocks.com/en/tutorials/audio/quick/
       -->
-    <h3 id="toc-player-custom">Player with customized controls</h3>
-    <audio id="audio">
-      <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.mp3" type="audio/mpeg" />
-      <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.ogg" type="audio/ogg" />
-      <p>Sorry, your browser does not support playing audio.</p>
-    </audio>
-    <div id="player" style="display: block">
-      <button onClick="document.getElementById('audio').play()">Play</button>
-      <button onClick="document.getElementById('audio').pause()">Pause</button>
-    </div>
+    <div data-role="page">
+      
+      <div data-role="header">
+	<h1>Audio player with cistomized controls</h1>
+      </div><!-- /header -->
+      
+      <div data-role="content">
+	<audio id="audio">
+	  <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.mp3" type="audio/mpeg" />
+	  <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.ogg" type="audio/ogg" />
+	  <p>Sorry, your browser does not support playing audio.</p>
+	</audio>
+	<a href="index.html" 
+	   data-role="button" 
+	   data-inline="true"
+	   onClick="document.getElementById('audio').play()">Play</a>
+	<a href="index.html" 
+	   data-role="button" 
+	   data-inline="true" 
+	   data-theme="b"
+	   onClick="document.getElementById('audio').pause()">Pause</a>
+      </div><!-- /content -->
+      
+    </div><!-- /page -->
+
   </body>
 </html>
