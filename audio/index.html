@@ -14,7 +14,7 @@
     <div data-role="page">
       
       <div data-role="header">
-	<h1>Audio player with cistomized controls</h1>
+	<h1>Audio player</h1>
       </div><!-- /header -->
       
       <div data-role="content">
@@ -23,15 +23,21 @@
 	  <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.ogg" type="audio/ogg" />
 	  <p>Sorry, your browser does not support playing audio.</p>
 	</audio>
-	<a href="index.html" 
-	   data-role="button" 
-	   data-inline="true"
-	   onClick="document.getElementById('audio').play()">Play</a>
-	<a href="index.html" 
-	   data-role="button" 
-	   data-inline="true" 
-	   data-theme="b"
-	   onClick="document.getElementById('audio').pause()">Pause</a>
+	<p>
+	  <div data-role="fieldcontain" 
+	       onClick="if (document.getElementById('slider').value == 'play')
+			  document.getElementById('audio').pause();
+			else 
+			  document.getElementById('audio').play();"
+	       style="text-align:center">
+	    <select name="slider" 
+		    id="slider" 
+		    data-role="slider" >
+	      <option value="play">Play</option>
+	      <option value="pause">Pause</option>
+	    </select> 
+	  </div>
+	</p>
       </div><!-- /content -->
       
     </div><!-- /page -->
