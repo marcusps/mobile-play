@@ -5,14 +5,23 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#player').click(function() {
+          if (document.getElementById('slider').value == 'play')
+            document.getElementById('audio').pause();
+          else 
+            document.getElementById('audio').play();
+        });
+      });
+    </script>
   </head>
   <body>
     <!--
 	Thanks to  
 	http://www.html5rocks.com/en/tutorials/audio/quick/
       -->
-    <div data-role="page">
-      
+    <div data-role="page">      
       <div data-role="header">
 	<h1>Audio player</h1>
       </div><!-- /header -->
@@ -25,11 +34,8 @@
 	</audio>
 	<p>
 	  <div data-role="fieldcontain" 
-	       onClick="if (document.getElementById('slider').value == 'play')
-			  document.getElementById('audio').pause();
-			else 
-			  document.getElementById('audio').play();"
-	       style="text-align:center">
+	       style="text-align:center"
+	       id="player">
 	    <select name="slider" 
 		    id="slider" 
 		    data-role="slider" >
