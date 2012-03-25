@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Mobile test page</title>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet"      
+        href="http://code.jquery.com/mobile/latest/jquery.mobile.css" /> 
+  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script> 
+  <script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+  <!--<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>-->
+  <script>
+      $(document).ready(function() {
+        $('#player').click(function() {
+          if (document.getElementById('slider').value == 'play')
+            document.getElementById('audio').pause();
+          else 
+            document.getElementById('audio').play();
+        });
+        $('#play').click( function() {
+          document.getElementById('audio2').play();
+        });
+        $('#pause').click( function() {
+          document.getElementById('audio2').pause();
+        });
+      });
+  </script>
+  <style type="text/css">
+    <!-- custom style overrides go here -->
+  </style>
+</head>
+<body>
+  <div data-role="page">
+    <div data-role="header">
+      <h1>Audio player</h1>
+    </div><!-- /header -->
+    <div data-role="content">
+      <audio id="audio">
+        <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.mp3"               
+                type="audio/mpeg" />
+        <p>Sorry, your browser does not support playing audio.</p>
+      </audio>
+      <audio id="audio2">
+        <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.mp3"               
+                type="audio/mpeg" />
+        <p>Sorry, your browser does not support playing audio.</p>
+      </audio>
+      <p>
+        <div data-role="fieldcontain" 
+             style="text-align:center"
+             id="player">
+          <select name="slider" 
+                  id="slider" 
+                  data-role="slider" >
+            <option value="play">Play</option>
+            <option value="pause">Pause</option>
+          </select> 
+        </div>
+      </p>
+      <p>
+        <div data-role="controlgroup"
+	     data-type="horizontal"
+             style="text-align:center">
+	  <a href="#play" data-role="button" id="play">Play</a>
+	  <a href="#pause" data-role="button" id="pause">Pause</a>
+        </div>
+      </p>
+    </div><!-- /content -->
+  </div><!-- /page -->
+</body>
+</html>
