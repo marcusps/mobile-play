@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta> 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <script>
+      var xml_opml = $.get("podcasts.xml");
+      //var xml_opml = '<opml version="1.1"><head><title>CBC Podcasts</title><dateCreated>Tue, 10 Mar 2009 04:50:29 GMT</dateCreated><dateModified>Tue, 10 Mar 2009 04:52:23 GMT</dateModified><ownerName>CBCPodcasting</ownerName><ownerEmail>podcasting@cbc.ca</ownerEmail><expansionState></expansionState><vertScrollState>1</vertScrollState><windowTop>175</windowTop><windowLeft>347</windowLeft><windowBottom>812</windowBottom><windowRight>983</windowRight></head></opml>';
+      var xml = $.parseXML( xml_opml );
+      var title = $(xml).find("opml").find("head").find("title");
+
+      $(document).ready(function() {
+        $('#popup').append(title);
+        $('#play-button').click( function() {
+          document.getElementById('audio').play();
+        });
+        $('#pause-button').click( function() {
+          document.getElementById('audio').pause();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!--
+	Thanks to  
+	http://www.html5rocks.com/en/tutorials/audio/quick/
+      -->
+    <div data-role="page">      
+      <div data-role="header">
+	<h1>Audio player</h1>
+      </div><!-- /header -->
+      
+      <div data-role="content">
+	<audio id="audio">
+	  <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.mp3" type="audio/mpeg" />
+	  <source src="http://www.html5rocks.com/en/tutorials/audio/quick/test.ogg" type="audio/ogg" />
+	  <p>Sorry, your browser does not support playing audio.</p>
+	</audio>
+	<p>
+	  <div data-role="controlgroup" data-type="horizontal" style="text-align:center">
+	    <a href="#opml"
+	       data-role="button" data-rel="dialog">OPML</a>
+	    <a data-role="button" 
+	       id="play-button">Play</a>
+	    <a data-role="button" 
+	       id="pause-button">Pause</a>
+	  </div>
+	</p>
+      </div><!-- /content -->
+      <div data-role="footer">
+	<h1>Footer</h1>
+      </div>
+    </div><!-- /page -->
+
+    <div data-role="page" id="opml">
+      <div data-role="header">
+	<h1>OPML stuff</h1>
+      </div><!-- /header -->
+      <div data-role="content">
+	<h1 id="popup"></h1>
+      </div><!-- /header -->
+    </div>
+
+  </body>
+</html>
